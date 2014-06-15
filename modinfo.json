@@ -1,0 +1,14 @@
+{
+  "author": "wondible",
+  "build": "67342",
+  "context": "server",
+  "date": "2014/06/14",
+  "description": "Give the commander enough economy to run his own nanolathe, avoiding mex-mex-pgen-mex.  May conflict with other mods affecting commander.",
+  "display_name": "Factory First",
+  "enabled": true,
+  "forum": null,
+  "identifier": "com.wondible.pa.factory_first",
+  "signature": "not yet implemented",
+  "version": "1.0.0"
+}
+

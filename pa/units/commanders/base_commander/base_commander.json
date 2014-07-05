@@ -2,8 +2,7 @@
   "display_name": "Base Commander",
   "description": "Base Commander Description - If you're seeing this, something is wrong in your commander.",
   "si_name": "commander",
-  "display_group": 99,
-  "display_index": 99,
+  "strategic_icon_priority": 0,
   "max_health": 12500,
   "build_metal_cost": 25000,
   "buildable_types": "CmdBuild",
@@ -80,30 +79,28 @@
   "tools": [
     {
       "spec_id": "/pa/tools/commander_build_arm/commander_build_arm.json",
-      "aim_bone": "bone_turret",
-      "build_arm": true
+      "aim_bone": "bone_turret"
     },
     {
       "spec_id": "/pa/units/commanders/base_commander/base_commander_tool_weapon.json",
       "aim_bone": "bone_turret",
       "muzzle_bone": "socket_rightMuzzle",
-      "primary_weapon": true,
-      "aim_weapon": true
+      "primary_weapon": true
     },
     {
       "spec_id": "/pa/tools/uber_cannon/uber_cannon.json",
       "aim_bone": "bone_turret",
       "muzzle_bone": "socket_rightMuzzle",
-      "secondary_weapon": true,
-      "ammo_weapon": true
+      "secondary_weapon": true
     },
     {
       "spec_id": "/pa/tools/commander_death/commander_death.json",
-      "death_weapon": true
+      "death_weapon": true,
+      "record_index": -1
     }
   ],
   "events": {
-    "firing": {
+    "fired": {
       "audio_cue": "/SE/Weapons/commander/Commander_uber_what",
       "effect_spec": "/pa/effects/specs/default_muzzle_flash.pfx socket_rightMuzzle"
     }
@@ -130,5 +127,10 @@
         "should_stop_func": "is_not_moving"
       }
     }
-  }
+  },
+  "mesh_bounds": [
+    12.6,
+    8.71255,
+    15.6193
+  ]
 }

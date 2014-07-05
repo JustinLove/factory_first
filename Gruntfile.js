@@ -5,6 +5,7 @@ prompt.start()
 var stream = 'stable'
 var media = require('./lib/path').media(stream)
 var build = 'ui/main/shared/js/build.js'
+var base = 'pa/units/commanders/base_commander/base_commander.json'
 
 module.exports = function(grunt) {
   // Project configuration.
@@ -15,6 +16,14 @@ module.exports = function(grunt) {
           {
             src: media + build,
             dest: build,
+          },
+        ],
+      },
+      base: {
+        files: [
+          {
+            src: media + base,
+            dest: base,
           },
         ],
       },
@@ -40,12 +49,11 @@ module.exports = function(grunt) {
       },
     },
     proc: {
-      health: {
-        filename_regexp: null,
+      ff: {
+        filename_regexp: 'base_commander',
         process: function(spec) {
-          if (spec.max_health) {
-            spec.max_health *= 2
-          }
+          spec.production.energy = 1500
+          spec.production.metal = 30
         }
       }
     }
@@ -88,7 +96,7 @@ module.exports = function(grunt) {
   })
 
   // Default task(s).
-  grunt.registerTask('default', ['json_schema', 'jsonlint']);
+  grunt.registerTask('default', ['copy:base', 'proc:ff', 'json_schema', 'jsonlint']);
 
 };
 
